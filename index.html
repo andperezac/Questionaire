@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Onsite Visit</title>
+</head>
+<body>
+    <div class="visit-container">
+        <h1>Onsite Visit</h1>
+        <form id="visit-form">
+            <label for="business-license">Do you have a valid business license?</label>
+            <select id="business-license" name="business-license">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="expiration-date">Business License Expiration Date:</label>
+            <input type="date" id="expiration-date" name="expiration-date">
+
+            <label for="cdph-license">Do you have a CDPH license on site and up to date?</label>
+            <select id="cdph-license" name="cdph-license">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="not-applicable">Not Applicable</option>
+            </select>
+
+            <label for="cdph-expiration-date">CDPH License Expiration Date:</label>
+            <input type="date" id="cdph-expiration-date" name="cdph-expiration-date">
+
+            <label for="pt-area">Are patient areas well-maintained, including floors, walls, and furniture?</label>
+            <select id="pt-area" name="pt-area">
+                <option value="yes"0>Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="rr-area">Are restrooms cleaned and contain sanitary supplies?</label>
+            <select id="rr-area" name="rr-area">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label for="training">Is there evidence that staff has received safety training or has access to safety information covering fire safety and emergency non-medical procedures (disaster, site evacuation, workplace violence, etc.)?</label>
+            <select id="training" name="training">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="lighting">Is lighting adequate in all areas to ensure safety?</label>
+            <select id="lighting" name="lighting">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <label for="exits">Are exit doors and aisles unobstructed, easily accessible for a safe exit, and clearly marked with exit signs?</label>
+            <select id="exits" name="exits">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="evacuations">Are evacuation routes clearly diagrammed and visibly posted near elevators, stairs, and exits for emergencies?</label>
+            <select id="evacuations" name="evacuations">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
