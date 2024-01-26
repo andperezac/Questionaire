@@ -7,7 +7,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(45deg, #1C75BC, #acd4ff) 
+    background: linear-gradient(45deg, #005a22, #4a6853) 
 }
 
 .visit-container {
@@ -21,6 +21,7 @@ body {
     padding: 20px;
     padding-top: 0px;
     margin-top: 0px;
+    opacity: 70%;
 }
 
 h1{
@@ -41,7 +42,7 @@ label, select, input {
 
 button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #005c6b;
     color: #fff;
     border: none;
     border-radius: 5px;

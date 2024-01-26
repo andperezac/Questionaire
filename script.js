@@ -1,38 +1,78 @@
-function submitForm() {
-    const businessLicenseInput = document.getElementById('business-license');
-    const expirationDateInput = document.getElementById('expiration-date');
+import React, { useState } from 'react';
 
-    const cdphLicenseInput = document.getElementById('cdph-license');
-    const cdphExpirationDateInput = document.getElementById('cdph-expiration-date');
+const MyForm = () => {
+  const [businessLicense, setBusinessLicense] = useState('');
+  const [expirationDate, setExpirationDate] = useState('');
+  const [cdphLicense, setCdphLicense] = useState('');
+  const [cdphExpirationDate, setCdphExpirationDate] = useState('');
 
-    
-    const hasValidLicense = businessLicenseInput.value === 'yes';
+  const handleBusinessLicenseChange = (event) => {
+    setBusinessLicense(event.target.value);
+  };
 
-    if (hasValidLicense) {
-        const expirationDate = expirationDateInput.value;
+  const handleExpirationDateChange = (event) => {
+    setExpirationDate(event.target.value);
+  };
 
-        
-        const currentDate = new Date();
-        const selectedDate = new Date(expirationDate);
+  const handleCdphLicenseChange = (event) => {
+    setCdphLicense(event.target.value);
+  };
 
-        if (selectedDate < currentDate) {
-            console.log('Visit flagged: Expired Business License');
-            
-        } else {
-            console.log('Valid Business License with Expiration Date:', expirationDate);
-        }
+  const handleCdphExpirationDateChange = (event) => {
+    setCdphExpirationDate(event.target.value);
+  };
+
+  const submitForm = () => {
+    if (businessLicense === 'yes') {
+      const currentDate = new Date();
+      const selectedDate = new Date(expirationDate);
+
+      if (selectedDate < currentDate) {
+        console.log('Visit flagged: Expired Business License');
+      } else {
+        console.log('Valid Business License with Expiration Date:', expirationDate);
+      }
     } else {
-        console.log('No Valid Business License');
+      console.log('No Valid Business License');
     }
 
-
-    const hasCDPHLicense = cdphLicenseInput.value === 'yes';
+    const hasCDPHLicense = cdphLicense === 'yes';
 
     if (hasCDPHLicense) {
-        const cdphExpirationDate = cdphExpirationDateInput.value;
-
-        console.log('CDPH License with Expiration Date:', cdphExpirationDate);
+      console.log('CDPH License with Expiration Date:', cdphExpirationDate);
     } else {
-        console.log('No valid CDPH License or Not Applicable');
+      console.log('No valid CDPH License or Not Applicable');
     }
-}
+
+    // Display pop-up message
+    window.alert('Your visit has been submitted!');
+  };
+
+  return (
+    <div>
+      <label>
+        Business License:
+        <input type="text" value={businessLicense} onChange={handleBusinessLicenseChange} />
+      </label>
+      <br />
+      <label>
+        Expiration Date:
+        <input type="date" value={expirationDate} onChange={handleExpirationDateChange} />
+      </label>
+      <br />
+      <label>
+        CDPH License:
+        <input type="text" value={cdphLicense} onChange={handleCdphLicenseChange} />
+      </label>
+      <br />
+      <label>
+        CDPH Expiration Date:
+        <input type="date" value={cdphExpirationDate} onChange={handleCdphExpirationDateChange} />
+      </label>
+      <br />
+      <button onClick={submitForm}>Submit</button>
+    </div>
+  );
+};
+
+export default MyForm;
